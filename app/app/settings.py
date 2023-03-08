@@ -1,10 +1,10 @@
- 
+
 
 from pathlib import Path
 import os
- 
+
 BASE_DIR = Path(__file__).resolve().parent.parent
- 
+
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-bu8l8z&^c-g)(hg8u8ip#a=md+7mpfqgkynn%$#9tgri0ajrxz'
@@ -24,7 +24,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core'
+    'rest_framework',
+    'drf_spectacular',
+    'core',
+    'user'
 ]
 
 MIDDLEWARE = [
@@ -114,3 +117,11 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+ALLOWED_HOSTS = ['*']
+
+AUTH_USER_MODEL = 'core.User'
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
